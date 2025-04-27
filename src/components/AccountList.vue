@@ -1,30 +1,28 @@
 <template>
     <div>
-      <h2>Список учетных записей</h2>
-      <ul>
-        <li v-for="account in accounts" :key="account.id">
-          {{ account.login }} ({{ account.type }})
-          <button @click="editAccount(account.id)">Редактировать</button>
-          <button @click="removeAccount(account.id)">Удалить</button>
+      <h2 class="mb-3">Список учетных записей</h2>
+      <ul class="list-group">
+        <li v-for="account in accounts" :key="account.id" class="list-group-item d-flex justify-content-between align-items-center">
+          <span>{{ account.login }} ({{ account.type }})</span>
+          <div>
+            <button @click="editAccount(account.id)" class="btn btn-warning me-2">Редактировать</button>
+            <button @click="removeAccount(account.id)" class="btn btn-danger">Удалить</button>
+          </div>
         </li>
       </ul>
-      <button @click="goToAddAccount">Добавить учетную запись</button>
+      <button @click="goToAddAccount" class="btn btn-success mt-3">Добавить учетную запись</button>
     </div>
   </template>
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { useAccountsStore } from '@/pinia/account';
   import { useRouter } from 'vue-router';
+  import { useAccounts } from '@/composables/useAccounts';
   
   export default defineComponent({
     setup() {
-      const accountsStore = useAccountsStore();
+      const { accounts, removeAccount } = useAccounts();
       const router = useRouter();
-  
-      const removeAccount = (id: string) => {
-        accountsStore.removeAccount(id);
-      };
   
       const editAccount = (id: string) => {
         router.push(`/edit/${id}`);
@@ -35,7 +33,7 @@
       };
   
       return {
-        accounts: accountsStore.accounts,
+        accounts,
         removeAccount,
         editAccount,
         goToAddAccount,
