@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import DefaultLayout from '@/layouts/DefaultLayout.vue';
+import DefaultLayout from '../src/layouts/DefaultLayout.vue';
 
 export default {
   components: { DefaultLayout },

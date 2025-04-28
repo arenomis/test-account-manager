@@ -3,7 +3,7 @@
   </template>
   
   <script lang="ts">
-  import AccountList from '@/components/AccountList.vue';
+  import AccountList from '../components/AccountList.vue';
   
   export default {
     components: { AccountList },
