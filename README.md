@@ -1,5 +1,24 @@
-# Vue 3 + TypeScript + Vite
+## Функционал
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+- Добавление и редактирование аккаунтов
+- Типы: Local (с паролем) и LDAP (без пароля)
+- Ввод тегов через точку с запятой (`;`)
+- Хранение данных в `localStorage`
+- Валидация:
+  - Логин — минимум 3 символа
+  - Пароль — минимум 6 символов (только для Local)
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Технологии
+
+- Vue 3 + TypeScript
+- Pinia (хранилище)
+- Vue Router (навигация)
+- Bootstrap (стили)
+- localStorage (хранение данных)
+
+## Как запустить
+
+- Установка зависимости:
+  ```npm install```
+- Запуск:
+  ```npm run dev```

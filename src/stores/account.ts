@@ -34,13 +34,11 @@ export const useAccountsStore = defineStore('accounts', {
       }
     },
     saveToLocalStorage() {
-      console.log('Saving accounts to localStorage:', this.accounts);
       localStorage.setItem('accounts', JSON.stringify(this.accounts));
     },
     loadFromLocalStorage() {
       const savedAccounts = localStorage.getItem('accounts');
       if (savedAccounts) {
-        console.log('Loading accounts from localStorage:', savedAccounts);
         this.accounts = JSON.parse(savedAccounts);
       } else {
         console.log('No accounts found in localStorage');
