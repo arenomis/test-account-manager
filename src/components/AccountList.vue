@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAccountsStore } from '../stores/account';
 
@@ -49,8 +49,10 @@ export default defineComponent({
     };
 
     return {
-      accounts: accountsStore.getAccounts, 
-      removeAccount: accountsStore.removeAccount,
+      accounts: computed(() => accountsStore.getAccounts),
+
+      removeAccount: (id: string) => accountsStore.removeAccount(id),
+
       editAccount,
       goToAddAccount,
     };
