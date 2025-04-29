@@ -1,31 +1,31 @@
 <template>
-  <div>
-    <h2 class="mb-3">Список учетных записей</h2>
-    <ul class="list-group" :key="accounts.length">
+  <div class="bg-white p-4 rounded shadow-sm">
+    <h2 class="mb-4 text-dark">Список учетных записей</h2>
+    <ul class="list-group list-group-flush">
       <li
         v-for="account in accounts"
         :key="account.id"
-        class="list-group-item d-flex justify-content-between align-items-center"
+        class="list-group-item d-flex justify-content-between align-items-center py-3"
       >
-        <span>{{ account.login }} ({{ account.type }})</span>
+        <span>{{ account.login }} <small class="text-muted">({{ account.type }})</small></span>
         <div>
           <button
             @click="editAccount(account.id)"
-            class="btn btn-warning btn-sm me-2"
+            class="btn btn-sm btn-outline-warning me-2"
           >
             <i class="bi bi-pencil"></i>
           </button>
           <button
             @click="removeAccount(account.id)"
-            class="btn btn-danger btn-sm"
+            class="btn btn-sm btn-outline-danger"
           >
             <i class="bi bi-trash"></i>
           </button>
         </div>
       </li>
     </ul>
-    <button @click="goToAddAccount" class="btn btn-success mt-3">
-      <i class="bi bi-plus-circle"></i> Добавить учетную запись
+    <button @click="goToAddAccount" class="btn btn-success btn-sm mt-3 px-3">
+      <i class="bi bi-plus-circle me-1"></i> Добавить учетную запись
     </button>
   </div>
 </template>
