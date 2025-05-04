@@ -1,4 +1,4 @@
-import { useAccountsStore } from 'D:/front/account-manager/src/stores/account.ts';
+import { useAccountsStore } from '../stores/account';
 
 export function useAccounts() {
   const accountsStore = useAccountsStore();
